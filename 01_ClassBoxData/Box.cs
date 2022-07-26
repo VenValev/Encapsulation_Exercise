@@ -6,11 +6,12 @@ namespace _01_ClassBoxData
 {
     public class Box
     {
+        private const int boxMinValue = 0;
+        private const string ZeroNegativeError = "{0} cannot be zero or negative.";
         private double lenght;
         private double width;
         private double height;
-        private const int boxMinValue = 0;
-        private const string ZeroNegativeError = "{0} cannot be zero or negative.";
+        
 
         public Box(double lenght, double width, double height)
         {
@@ -76,17 +77,13 @@ namespace _01_ClassBoxData
 
         public double SurfaceArea()
         {
-            return 0;
+            return (2*this.Lenght * this.Width) + (2*this.Width*this.Height) + (2*this.Lenght*this.Height);
         }
 
         public double LatheralSurfaceArea()
-        {
-            return 0;
-        }
+            => (2 * this.Lenght * this.Height) + (2 * this.Width * this.Height);
 
         public double Volume()
-        {
-            return 0;
-        }
+            => this.Lenght * this.Width * this.Height;
     }
 }
