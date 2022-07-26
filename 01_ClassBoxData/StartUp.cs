@@ -2,11 +2,11 @@
 
 namespace _01_ClassBoxData
 {
-    internal class StartUp
+    public class StartUp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Box box = new Box(-1, 4, 5);
         }
     }
 }
