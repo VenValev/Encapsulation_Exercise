@@ -5,6 +5,8 @@ namespace AnimalFarm.Models
     using System;
     public class Chicken
     {
+        private const string invalidName = "Name cannot be empty.";
+        private const string invalidAge = "Age should be between 0 and 15.";
         private const int MinAge = 0;
         private const int MaxAge = 15;
 
@@ -28,8 +30,9 @@ namespace AnimalFarm.Models
             {
                 if(string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Name cannot be empty.");
+                    throw new ArgumentException(invalidName);
                 }
+
                 this.name = value;
             }
         }
@@ -43,6 +46,11 @@ namespace AnimalFarm.Models
 
             private set
             {
+                if(value < MinAge || value > MaxAge)
+                {
+                    throw new ArgumentException(invalidAge);
+                }
+
                 this.age = value;
             }
         }
@@ -55,7 +63,7 @@ namespace AnimalFarm.Models
 			}
         }
 
-        public double CalculateProductPerDay()
+        private double CalculateProductPerDay()
         {
             switch (this.Age)
             {
