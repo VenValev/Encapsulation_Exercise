@@ -28,6 +28,7 @@ namespace _03_Shopping_Spree
                 {
                     throw new ArgumentException(ExeptionMessages.invalidName);
                 }
+
                 this.name = value;
             }
         }
@@ -43,6 +44,8 @@ namespace _03_Shopping_Spree
                 {
                     throw new ArgumentException(ExeptionMessages.invalidMoney);
                 }
+
+                this.price = value;
             }
         }
     }
