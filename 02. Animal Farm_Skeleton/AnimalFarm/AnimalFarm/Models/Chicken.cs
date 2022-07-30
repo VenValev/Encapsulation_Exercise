@@ -1,6 +1,4 @@
-﻿
-
-namespace AnimalFarm.Models
+﻿namespace AnimalFarm.Models
 {
     using System;
     public class Chicken
