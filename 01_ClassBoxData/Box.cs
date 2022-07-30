@@ -15,12 +15,12 @@ namespace _01_ClassBoxData
 
         public Box(double lenght, double width, double height)
         {
-            this.Lenght = lenght;
+            this.Length = lenght;
             this.Width = width;
             this.Height = height;
         }
 
-        public double Lenght
+        public double Length
         {
             get
             {
@@ -30,7 +30,7 @@ namespace _01_ClassBoxData
             {
                 if(value <= boxMinValue)
                 {
-                    throw new ArgumentException(String.Format(ZeroNegativeError, nameof(this.Lenght)));
+                    throw new ArgumentException(String.Format(ZeroNegativeError, nameof(this.Length)));
                 }
                 else
                 {
@@ -77,20 +77,20 @@ namespace _01_ClassBoxData
 
         public double SurfaceArea()
         {
-            return (2*this.Lenght * this.Width) + (2*this.Width*this.Height) + (2*this.Lenght*this.Height);
+            return (2*this.Length * this.Width) + (2*this.Width*this.Height) + (2*this.Length * this.Height);
         }
 
-        public double LatheralSurfaceArea()
-            => (2 * this.Lenght * this.Height) + (2 * this.Width * this.Height);
+        public double LateralSurfaceArea()
+            => (2 * this.Length * this.Height) + (2 * this.Width * this.Height);
 
         public double Volume()
-            => this.Lenght * this.Width * this.Height;
+            => this.Length * this.Width * this.Height;
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Surface Area - {SurfaceArea():f2}");
-            sb.AppendLine($"Lateral Surface Area - {LatheralSurfaceArea():f2}");
+            sb.AppendLine($"Lateral Surface Area - {LateralSurfaceArea():f2}");
             sb.AppendLine($"Volume - {Volume():f2}");
             return sb.ToString();
         }
