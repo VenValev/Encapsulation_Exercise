@@ -1,5 +1,8 @@
-﻿namespace AnimalFarm.Models
+﻿
+
+namespace AnimalFarm.Models
 {
+    using System;
     public class Chicken
     {
         private const int MinAge = 0;
@@ -23,6 +26,10 @@
 
             private set
             {
+                if(string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be empty.");
+                }
                 this.name = value;
             }
         }
