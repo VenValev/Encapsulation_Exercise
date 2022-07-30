@@ -90,7 +90,7 @@ namespace _01_ClassBoxData
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Surface Area - {SurfaceArea():f2}");
-            sb.AppendLine($"Latheral Surface Area - {LatheralSurfaceArea():f2}");
+            sb.AppendLine($"Lateral Surface Area - {LatheralSurfaceArea():f2}");
             sb.AppendLine($"Volume - {Volume():f2}");
             return sb.ToString();
         }
