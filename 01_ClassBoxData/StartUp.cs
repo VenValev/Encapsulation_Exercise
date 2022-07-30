@@ -6,7 +6,18 @@ namespace _01_ClassBoxData
     {
         static void Main(string[] args)
         {
-            Box box = new Box(-1, 4, 5);
+            try
+            {
+                double l = double.Parse(Console.ReadLine());
+                double w = double.Parse(Console.ReadLine());
+                double h = double.Parse(Console.ReadLine());
+                Box box = new Box(l, w, h);
+                Console.WriteLine(box);
+            }
+            catch(ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
         }
     }
 }

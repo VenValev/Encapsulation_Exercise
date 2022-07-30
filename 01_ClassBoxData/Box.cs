@@ -85,5 +85,14 @@ namespace _01_ClassBoxData
 
         public double Volume()
             => this.Lenght * this.Width * this.Height;
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Surface Area - {SurfaceArea():f2}");
+            sb.AppendLine($"Latheral Surface Area - {LatheralSurfaceArea():f2}");
+            sb.AppendLine($"Volume - {Volume():f2}");
+            return sb.ToString();
+        }
     }
 }
