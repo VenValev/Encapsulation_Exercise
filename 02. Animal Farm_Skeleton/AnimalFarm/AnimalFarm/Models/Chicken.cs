@@ -1,6 +1,8 @@
-﻿namespace AnimalFarm.Models
+﻿using System;
+
+namespace AnimalFarm.Models
 {
-    using System;
+
     public class Chicken
     {
         private const string invalidName = "Name cannot be empty.";
@@ -30,8 +32,11 @@
                 {
                     throw new ArgumentException(invalidName);
                 }
-
-                this.name = value;
+                else
+                {
+                    this.name = value;
+                }
+                
             }
         }
 
@@ -48,8 +53,10 @@
                 {
                     throw new ArgumentException(invalidAge);
                 }
-
-                this.age = value;
+                else
+                {
+                    this.age = value;
+                }
             }
         }
 
