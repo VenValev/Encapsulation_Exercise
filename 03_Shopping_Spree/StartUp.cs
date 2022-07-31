@@ -56,7 +56,10 @@ namespace _03_Shopping_Spree
                 Console.WriteLine(ae.Message);
             }
 
-
+            foreach(Person p in listOfPeople)
+            {
+                Console.WriteLine(p);
+            }
             
         }
     }
