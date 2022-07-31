@@ -76,7 +76,7 @@ namespace _03_Shopping_Spree
             }
             else
             {
-                sb.Append(String.Join(',', BagOfProducts));
+                sb.Append(String.Join(", ", BagOfProducts));
             }
 
             return sb.ToString();
