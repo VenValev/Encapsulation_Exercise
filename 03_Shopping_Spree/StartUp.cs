@@ -25,7 +25,10 @@ namespace _03_Shopping_Spree
 
                 for(int i = 0; i < products.Length; i++)
                 {
-
+                    string productName = products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[0];
+                    double price = double.Parse(products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[0]);
+                    Product product = new Product(productName, price);
+                    listOfProducts.Add(product);
                 }
 
                 while ((command = Console.ReadLine()) != "END")
