@@ -26,20 +26,37 @@ namespace _03_Shopping_Spree
                 for(int i = 0; i < products.Length; i++)
                 {
                     string productName = products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[0];
-                    double price = double.Parse(products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[0]);
+                    double price = double.Parse(products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[1]);
                     Product product = new Product(productName, price);
                     listOfProducts.Add(product);
                 }
 
                 while ((command = Console.ReadLine()) != "END")
                 {
+                    string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    Person currPerson = listOfPeople.Find(n => n.Name == cmndArg[0]);
+                    Product currProduct = listOfProducts.Find(n => n.Name == cmndArg[1]);
+                    int cPe = listOfPeople.FindIndex(n => n.Name == cmndArg[0]);
+                    //int cPr = listOfProducts.FindIndex(n => n.Name == cmndArg[1]);
 
+                    if (currPerson.Money < currProduct.Price)
+                    {
+                        Console.WriteLine($"{currPerson.Name} can't afford {currProduct.Name}");
+                    }
+                    else
+                    {
+                        currPerson.BagOfProducts.Add(currProduct.Name);
+                        currPerson.Money -= currProduct.Price;
+                    }
+                    listOfPeople[cPe] = currPerson;
                 }
             }
             catch(ArgumentException ae)
             {
                 Console.WriteLine(ae.Message);
             }
+
+
             
         }
     }

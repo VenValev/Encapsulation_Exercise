@@ -8,13 +8,18 @@ namespace _03_Shopping_Spree
     {
         private string name;
         private double money;
-        private List<Product> bagOfProducts;
+        private List<string> bagOfProducts;
 
+        private Person()
+        {
+            BagOfProducts = new List<string>();
+        }
         public Person(string name, double money)
+            : this()
         {
             this.Name = name;
             this.Money = money;
-            bagOfProducts = new List<Product>();
+            
         }
         public string Name
         {
@@ -49,6 +54,17 @@ namespace _03_Shopping_Spree
             }
         }
 
+        public List<string> BagOfProducts
+        {
+            get
+            {
+                return this.bagOfProducts;
+            }
+            set
+            {
+                this.bagOfProducts = value;
+            }
+        }
         //toString()?
     }
 }
