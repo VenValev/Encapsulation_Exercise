@@ -42,6 +42,7 @@ namespace _03_Shopping_Spree
                     if (currPerson.Money < currProduct.Price)
                     {
                         Console.WriteLine($"{currPerson.Name} can't afford {currProduct.Name}");
+                        continue;
                     }
                     else
                     {
@@ -50,6 +51,7 @@ namespace _03_Shopping_Spree
                         currPerson.Money -= currProduct.Price;
                         Console.WriteLine($"{currPerson.Name} bought {currProduct.Name}");
                     }
+
                     listOfPeople[cPe] = currPerson;
                 }
             }
