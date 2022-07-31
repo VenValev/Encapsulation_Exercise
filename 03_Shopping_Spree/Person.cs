@@ -10,6 +10,12 @@ namespace _03_Shopping_Spree
         private double money;
         private List<Product> bagOfProducts;
 
+        public Person(string name, double money)
+        {
+            this.Name = name;
+            this.Money = money;
+            bagOfProducts = new List<Product>();
+        }
         public string Name
         {
             get
@@ -42,5 +48,7 @@ namespace _03_Shopping_Spree
                 this.money = value;
             }
         }
+
+        //toString()?
     }
 }
