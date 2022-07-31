@@ -45,8 +45,10 @@ namespace _03_Shopping_Spree
                     }
                     else
                     {
+
                         currPerson.BagOfProducts.Add(currProduct.Name);
                         currPerson.Money -= currProduct.Price;
+                        Console.WriteLine($"{currPerson.Name} bought {currProduct.Name}");
                     }
                     listOfPeople[cPe] = currPerson;
                 }
