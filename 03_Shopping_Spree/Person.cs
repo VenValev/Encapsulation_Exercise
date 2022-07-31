@@ -66,5 +66,20 @@ namespace _03_Shopping_Spree
             }
         }
         //toString()?
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.Name} - ");
+            if(BagOfProducts.Count == 0)
+            {
+                sb.Append("Nothing bought");
+            }
+            else
+            {
+                sb.Append(String.Join(',', BagOfProducts));
+            }
+
+            return sb.ToString();
+        }
     }
 }
