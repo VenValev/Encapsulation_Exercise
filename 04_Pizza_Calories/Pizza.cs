@@ -39,7 +39,7 @@ namespace _04_Pizza_Calories
         public Dough DoughType
         {
             get => this.doughType;
-            private set
+            set
             {
                 this.doughType = value;
             }
@@ -55,7 +55,7 @@ namespace _04_Pizza_Calories
         public double TotalCalories
         {
             get { return this.totalCalories; }
-            set
+            private set
             {
                 if(this.toppingType.Count == 0)
                 {
