@@ -6,24 +6,25 @@ namespace _04_Pizza_Calories
 {
     public class Dough
     {
-        private const string errMsg = "Invalid type of dough.";
+        private const string errMsgDough = "Invalid type of dough.";
+        private const string errMsgWeight = "Dough weight should be in the range [1..200].";
         private string dType;
         private string dBake;
         private const double caloriesPerGram = 2;
         private double dWeight;
 
-        public string DType
+        private string DType
         {
             get { return this.dType; }
-            private set
+            set
             {
                 if(String.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException(errMsg);
+                    throw new ArgumentException(errMsgDough);
                 }
                 else if(value != "White" || value != "Wholegrain")
                 {
-                    throw new ArgumentException(errMsg);
+                    throw new ArgumentException(errMsgDough);
                 }
                 else
                 {
@@ -31,17 +32,17 @@ namespace _04_Pizza_Calories
                 }
             }
         }
-        public string DBake
+        private string DBake
         {
             get
             {
                 return this.dBake;
             }
-            private set
+            set
             {
                 if(String.IsNullOrWhiteSpace(value) || value != "Crispy" || value != "Chewy" || value != "Homemade")
                 {
-                    throw new ArgumentException(errMsg);
+                    throw new ArgumentException(errMsgDough);
                 }
                 else
                 {
@@ -49,5 +50,20 @@ namespace _04_Pizza_Calories
                 }
             }
         }
+        private double DWeight
+        {
+            get
+            {
+                return this.dWeight;
+            }
+            set
+            {
+                if (value <= 0 || value > 200)
+                {
+                    throw new ArgumentException(errMsgWeight);
+                }
+            }
+        }
+
     }
 }
