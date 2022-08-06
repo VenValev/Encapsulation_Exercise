@@ -13,6 +13,13 @@ namespace _04_Pizza_Calories
         private double caloriesPerGram;
         private double dWeight;
 
+        public Dough(string dType,string dBake, double dWeight)
+        {
+            this.DType = dType;
+            this.DBake = dBake;
+            this.DWeight = dWeight;
+        }
+
         private string DType
         {
             get { return this.dType; }
