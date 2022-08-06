@@ -27,12 +27,13 @@ namespace _04_Pizza_Calories
             set
             {
                 if(String.IsNullOrWhiteSpace(value) 
-                    || (value != "Meat" && value != "Veggies" && value != "Cheese" && value != "Sauce"))
+                    || (value.ToLower() != "meat" && value.ToLower() != "veggies" 
+                    && value.ToLower() != "cheese" && value.ToLower() != "sauce"))
                 {
                     throw new ArgumentException($"Cannot place {value} on top of your pizza.");
                 }
 
-                this.type = value;
+                this.type = value.ToLower();
             }
         }
         private double Weight
@@ -53,19 +54,19 @@ namespace _04_Pizza_Calories
         {
             double tModifier = 0;
 
-            if(this.Type == "Meat")
+            if(this.Type == "meat")
             {
                 tModifier = 1.2;
             }
-            if (this.Type == "Veggies")
+            if (this.Type == "veggies")
             {
                 tModifier = 0.8;
             }
-            if (this.Type == "Cheese")
+            if (this.Type == "cheese")
             {
                 tModifier = 1.1;
             }
-            if (this.Type == "Sauce")
+            if (this.Type == "sauce")
             {
                 tModifier = 0.9;
             }

@@ -31,13 +31,13 @@ namespace _04_Pizza_Calories
                 {
                     throw new ArgumentException(errMsgDough);
                 }
-                else if(value != "White" && value != "Wholegrain")
+                else if(value.ToLower() != "white" && value.ToLower() != "wholegrain")
                 {
                     throw new ArgumentException(errMsgDough);
                 }
                 else
                 {
-                    this.dType = value;
+                    this.dType = value.ToLower();
                 }
             }
         }
@@ -49,13 +49,14 @@ namespace _04_Pizza_Calories
             }
             set
             {
-                if(String.IsNullOrWhiteSpace(value) || (value != "Crispy" && value != "Chewy" && value != "Homemade"))
+                if(String.IsNullOrWhiteSpace(value) 
+                    || (value.ToLower() != "crispy" && value.ToLower() != "chewy" && value.ToLower() != "homemade"))
                 {
                     throw new ArgumentException(errMsgDough);
                 }
                 else
                 {
-                    this.dBake = value;
+                    this.dBake = value.ToLower();
                 }
             }
         }
@@ -92,7 +93,7 @@ namespace _04_Pizza_Calories
             double dModifier;
             double bModifier;
 
-            if(DType == "White")
+            if(DType == "white")
             {
                 dModifier = 1.5;
             }
@@ -100,11 +101,11 @@ namespace _04_Pizza_Calories
             {
                 dModifier = 1.0;
             }
-            if(DBake == "Crispy")
+            if(DBake == "crispy")
             {
                 bModifier = 0.9;
             }
-            else if(DBake == "Chewy")
+            else if(DBake == "chewy")
             {
                 bModifier = 1.1;
             }
