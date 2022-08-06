@@ -18,7 +18,7 @@ namespace _04_Pizza_Calories
             this.DType = dType;
             this.DBake = dBake;
             this.DWeight = dWeight;
-            this.CaloriesPerGram = 2;
+            this.CaloriesPerGram = caloriesPerGram;
         }
 
         private string DType

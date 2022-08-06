@@ -15,6 +15,7 @@ namespace _04_Pizza_Calories
                 {
                     Dough dd = new Dough(cmndArg[1], cmndArg[2], double.Parse(cmndArg[3]));
                     Console.WriteLine($"{dd.Calories():f2}");
+                    Console.WriteLine(dd.CaloriesPerGram);
                 }
                 catch(ArgumentException ae)
                 {
