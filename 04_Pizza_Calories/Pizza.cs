@@ -7,14 +7,20 @@ namespace _04_Pizza_Calories
     public class Pizza
     {
         private string name;
-        private List<Topping> toppingType;
+        private readonly List<Topping> toppingType;
         private Dough doughType;
         private int toppingCount;
         private int totalCalories;
 
         public Pizza()
         {
-            toppingType = new List<Topping>();
+            this.toppingType = new List<Topping>();
+        }
+        public Pizza (string name, Dough doughType)
+            :this()
+        {
+            this.Name = name;
+            this.DoughType = doughType;
         }
 
         public string Name
@@ -22,8 +28,26 @@ namespace _04_Pizza_Calories
             get => this.name;
             private set
             {
+                if(String.IsNullOrWhiteSpace(value) || (value.Length < 1 || value.Length > 15))
+                {
+                    throw new ArgumentException($"Pizza name should be between 1 and 15 symbols.");
+                }
                 this.name = value;
             }
+        }
+        public Dough DoughType
+        {
+            get => this.doughType;
+            private set
+            {
+                this.doughType = value;
+            }
+        }
+
+        
+        public void AddTopping(Topping t)
+        {
+            toppingType.Add(t);
         }
     }
 }
