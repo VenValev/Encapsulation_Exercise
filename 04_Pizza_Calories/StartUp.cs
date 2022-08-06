@@ -6,32 +6,30 @@ namespace _04_Pizza_Calories
     {
         static void Main(string[] args)
         {
-            string cmnd;
+            string[] pizzaLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-            while((cmnd = Console.ReadLine()) != "END")
+            Dough dough = new Dough(doughLine[1], doughLine[2], double.Parse(doughLine[3]));
+            Pizza pizza = new Pizza(pizzaLine[1], dough);
+            string command;
+
+            try
             {
-                string[] cmndArg = cmnd.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                try
+                while ((command = Console.ReadLine()) != "END")
                 {
-                    if (cmndArg[0] == "Dough")
-                    {
-                        Dough dd = new Dough(cmndArg[1], cmndArg[2], double.Parse(cmndArg[3]));
-                        Console.WriteLine($"{dd.Calories():f2}");
-                    }
-                    else if (cmndArg[0] == "Topping")
-                    {
-                        Topping dd = new Topping(cmndArg[1], double.Parse(cmndArg[2]));
-                        Console.WriteLine($"{dd.Calories():f2}");
-                    }
-                    
-                    //Console.WriteLine(dd.CaloriesPerGram);
+                    string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    Topping topping = new Topping(cmndArg[1], double.Parse(cmndArg[2]));
+                    pizza.AddTopping(topping);
                 }
-                catch(ArgumentException ae)
-                {
-                    Console.WriteLine(ae.Message);
-                }
-                
+                Console.WriteLine(pizza.ToString());
             }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+
+
+
         }
     }
 }

@@ -22,6 +22,7 @@ namespace _04_Pizza_Calories
             this.Name = name;
             this.DoughType = doughType;
             this.ToppingCount = toppingCount;
+            this.TotalCalories = totalCalories;
         }
 
         public string Name
@@ -47,33 +48,40 @@ namespace _04_Pizza_Calories
         public int ToppingCount
         {
             get { return this.toppingCount; }
-            private set
-            {
-                this.toppingCount = toppingType.Count;
-            }
+            private set { this.toppingCount = value; }
         }
         public double TotalCalories
         {
             get { return this.totalCalories; }
-            private set
+            /*private set
             {
                 if(this.toppingType.Count == 0)
                 {
                     throw new ArgumentException($"Number of toppings should be in range [0..10].");
                 }
                 this.totalCalories = toppingType.Sum(c => c.Calories());
-            }
+            }*/
+            private set
+            { this.totalCalories = value; }
         }
         public void AddTopping(Topping t)
         {
-            if(toppingType.Count > 10)
+            if (toppingType.Count > 10)
             {
                 throw new ArgumentException($"Number of toppings should be in range [0..10].");
             }
             else
-                toppingType.Add(t);
+            {
+                this.toppingType.Add(t);
+                this.TotalCalories += t.Calories();
+                this.ToppingCount++;
+            }
         }
 
-        
+        public override string ToString()
+        {
+            return $"{this.Name} - {this.TotalCalories + DoughType.Calories():f2} Calories";
+        }
+
     }
 }
