@@ -18,6 +18,7 @@ namespace _04_Pizza_Calories
             this.DType = dType;
             this.DBake = dBake;
             this.DWeight = dWeight;
+            this.CaloriesPerGram = 2;
         }
 
         private string DType
@@ -29,7 +30,7 @@ namespace _04_Pizza_Calories
                 {
                     throw new ArgumentException(errMsgDough);
                 }
-                else if(value != "White" || value != "Wholegrain")
+                else if(value != "White" && value != "Wholegrain")
                 {
                     throw new ArgumentException(errMsgDough);
                 }
@@ -47,7 +48,7 @@ namespace _04_Pizza_Calories
             }
             set
             {
-                if(String.IsNullOrWhiteSpace(value) || value != "Crispy" || value != "Chewy" || value != "Homemade")
+                if(String.IsNullOrWhiteSpace(value) || (value != "Crispy" && value != "Chewy" && value != "Homemade"))
                 {
                     throw new ArgumentException(errMsgDough);
                 }
