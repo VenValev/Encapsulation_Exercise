@@ -81,11 +81,38 @@ namespace _04_Pizza_Calories
             }
             private set
             {
-                this.caloriesPerGram = 2;
+                this.caloriesPerGram = 2.0;
             }
         }
 
+        public double Calories()
+        {
+            double dModifier;
+            double bModifier;
 
+            if(DType == "White")
+            {
+                dModifier = 1.5;
+            }
+            else  // proveri dali minava prez proverki
+            {
+                dModifier = 1.0;
+            }
+            if(DBake == "Crispy")
+            {
+                bModifier = 0.9;
+            }
+            else if(DBake == "Chewy")
+            {
+                bModifier = 1.1;
+            }
+            else
+            {
+                bModifier = 1.0;
+            }
+
+            return (CaloriesPerGram * DWeight) * dModifier * bModifier;
+        }
 
     }
 }
