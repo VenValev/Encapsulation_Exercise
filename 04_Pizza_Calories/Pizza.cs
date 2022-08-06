@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
 namespace _04_Pizza_Calories
 {
     public class Pizza
@@ -10,7 +10,7 @@ namespace _04_Pizza_Calories
         private readonly List<Topping> toppingType;
         private Dough doughType;
         private int toppingCount;
-        private int totalCalories;
+        private double totalCalories;
 
         public Pizza()
         {
@@ -21,6 +21,7 @@ namespace _04_Pizza_Calories
         {
             this.Name = name;
             this.DoughType = doughType;
+            this.ToppingCount = toppingCount;
         }
 
         public string Name
@@ -43,11 +44,36 @@ namespace _04_Pizza_Calories
                 this.doughType = value;
             }
         }
-
-        
+        public int ToppingCount
+        {
+            get { return this.toppingCount; }
+            private set
+            {
+                this.toppingCount = toppingType.Count;
+            }
+        }
+        public double TotalCalories
+        {
+            get { return this.totalCalories; }
+            set
+            {
+                if(this.toppingType.Count == 0)
+                {
+                    throw new ArgumentException($"Number of toppings should be in range [0..10].");
+                }
+                this.totalCalories = toppingType.Sum(c => c.Calories());
+            }
+        }
         public void AddTopping(Topping t)
         {
-            toppingType.Add(t);
+            if(toppingType.Count > 10)
+            {
+                throw new ArgumentException($"Number of toppings should be in range [0..10].");
+            }
+            else
+                toppingType.Add(t);
         }
+
+        
     }
 }
