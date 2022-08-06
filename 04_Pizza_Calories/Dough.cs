@@ -14,15 +14,40 @@ namespace _04_Pizza_Calories
 
         public string DType
         {
-            get { return dType; }
-            set
+            get { return this.dType; }
+            private set
             {
                 if(String.IsNullOrWhiteSpace(value))
                 {
-
+                    throw new ArgumentException(errMsg);
+                }
+                else if(value != "White" || value != "Wholegrain")
+                {
+                    throw new ArgumentException(errMsg);
+                }
+                else
+                {
+                    this.dType = value;
                 }
             }
         }
-
+        public string DBake
+        {
+            get
+            {
+                return this.dBake;
+            }
+            private set
+            {
+                if(String.IsNullOrWhiteSpace(value) || value != "Crispy" || value != "Chewy" || value != "Homemade")
+                {
+                    throw new ArgumentException(errMsg);
+                }
+                else
+                {
+                    this.dBake = value;
+                }
+            }
+        }
     }
 }
