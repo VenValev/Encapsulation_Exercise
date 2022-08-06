@@ -10,7 +10,7 @@ namespace _04_Pizza_Calories
         private const string errMsgWeight = "Dough weight should be in the range [1..200].";
         private string dType;
         private string dBake;
-        private const double caloriesPerGram = 2;
+        private double caloriesPerGram;
         private double dWeight;
 
         private string DType
@@ -62,8 +62,23 @@ namespace _04_Pizza_Calories
                 {
                     throw new ArgumentException(errMsgWeight);
                 }
+
+                this.dWeight = value;
             }
         }
+        public double CaloriesPerGram
+        {
+            get
+            {
+                return this.caloriesPerGram;
+            }
+            private set
+            {
+                this.caloriesPerGram = 2;
+            }
+        }
+
+
 
     }
 }
