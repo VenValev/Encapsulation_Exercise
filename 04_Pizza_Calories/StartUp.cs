@@ -6,11 +6,10 @@ namespace _04_Pizza_Calories
     {
         static void Main(string[] args)
         {
-            string[] pizzaLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
             try
             {
+                string[] pizzaLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 Dough dough = new Dough(doughLine[1], doughLine[2], double.Parse(doughLine[3]));
                 Pizza pizza = new Pizza(pizzaLine[1], dough);
                 string command;
