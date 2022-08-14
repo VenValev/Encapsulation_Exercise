@@ -29,7 +29,7 @@ namespace _03_Shopping_Spree
             }
             private set
             {
-                if (String.IsNullOrWhiteSpace(value))
+                if (String.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException(ExeptionMessages.invalidName);
                 }
@@ -79,7 +79,7 @@ namespace _03_Shopping_Spree
                 sb.Append(String.Join(", ", BagOfProducts));
             }
 
-            return sb.ToString().TrimEnd();
+            return sb.ToString();
         }
     }
 }

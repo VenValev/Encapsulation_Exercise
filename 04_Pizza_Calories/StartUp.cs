@@ -14,6 +14,8 @@ namespace _04_Pizza_Calories
                 Pizza pizza = new Pizza(pizzaLine[1], dough);
                 string command;
 
+                //pizza.DoughType = new Dough("gosho", "chewy", 25);
+
                 while ((command = Console.ReadLine()) != "END")
                 {
                     string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
