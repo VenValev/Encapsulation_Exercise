@@ -29,7 +29,7 @@ namespace _03_Shopping_Spree
             }
             private set
             {
-                if (String.IsNullOrEmpty(value))
+                if (String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException(ExeptionMessages.invalidName);
                 }
