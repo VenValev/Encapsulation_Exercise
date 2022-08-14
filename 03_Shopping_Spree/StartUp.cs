@@ -12,6 +12,7 @@ namespace _03_Shopping_Spree
             string command;
             List<Person> listOfPeople = new List<Person>();
             List<Product> listOfProducts = new List<Product>();
+
             try
             {
                 for (int i = 0; i < people.Length; i++)
@@ -23,14 +24,22 @@ namespace _03_Shopping_Spree
                     listOfPeople.Add(person);
                 }
 
-                for(int i = 0; i < products.Length; i++)
+                for (int i = 0; i < products.Length; i++)
                 {
                     string productName = products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[0];
                     double price = double.Parse(products[i].Split('=', StringSplitOptions.RemoveEmptyEntries)[1]);
                     Product product = new Product(productName, price);
                     listOfProducts.Add(product);
                 }
+            }
+            catch(ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+                return;
+            }
 
+            try
+            {
                 while ((command = Console.ReadLine()) != "END")
                 {
                     string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -58,6 +67,7 @@ namespace _03_Shopping_Spree
             catch(ArgumentException ae)
             {
                 Console.WriteLine(ae.Message);
+                return;
             }
 
             foreach(Person p in listOfPeople)

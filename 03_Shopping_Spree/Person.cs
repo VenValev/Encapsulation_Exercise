@@ -60,7 +60,7 @@ namespace _03_Shopping_Spree
             {
                 return this.bagOfProducts;
             }
-            set
+            private set
             {
                 this.bagOfProducts = value;
             }
