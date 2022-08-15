@@ -18,11 +18,7 @@ namespace _04_Pizza_Calories
             this.Weight = weight;
             this.CaloriesPerGram = Calories();
         }
-        public double CaloriesPerGram
-        {
-            get { return this.caloriesPerGram; }
-            private set { this.caloriesPerGram = value; }
-        }
+       
         private string Type
         {
             get { return this.type; }
@@ -50,6 +46,11 @@ namespace _04_Pizza_Calories
 
                 this.weight = value;
             }
+        }
+        public double CaloriesPerGram
+        {
+            get { return this.caloriesPerGram; }
+            private set { this.caloriesPerGram = value; }
         }
 
         private double Calories() // moje da ser naloji proverka za .toLower
