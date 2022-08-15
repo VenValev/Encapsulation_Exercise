@@ -89,7 +89,7 @@ namespace _04_Pizza_Calories
             }
         }
 
-        private double Calories()
+        public double Calories()
         {
             double dModifier;
             double bModifier;

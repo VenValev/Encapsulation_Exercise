@@ -39,7 +39,7 @@ namespace _04_Pizza_Calories
             get => this.weight;
             set
             {
-                if(value <= 0 || value > 50)
+                if(value < 1 || value > 50)
                 {
                     throw new ArgumentException($"{this.Type} weight should be in the range[1..50].");
                 }
@@ -53,7 +53,7 @@ namespace _04_Pizza_Calories
             private set { this.caloriesPerGram = value; }
         }
 
-        private double Calories() // moje da ser naloji proverka za .toLower
+        public double Calories() // moje da ser naloji proverka za .toLower
         {
             if(this.Type.ToLower() == "meat")
             {
