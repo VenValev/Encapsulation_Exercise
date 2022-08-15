@@ -12,6 +12,7 @@ namespace _04_Pizza_Calories
         private string dBake;
         private double caloriesPerGram;
         private double dWeight;
+        private const double defaultModifier = 2;
         
 
         public Dough(string dType,string dBake, double dWeight)
@@ -19,7 +20,7 @@ namespace _04_Pizza_Calories
             this.DType = dType;
             this.DBake = dBake;
             this.DWeight = dWeight;
-            this.CaloriesPerGram = 2.0;
+            this.CaloriesPerGram = Calories();
         }
 
         private string DType
@@ -84,11 +85,11 @@ namespace _04_Pizza_Calories
             }
             private set
             {
-                this.caloriesPerGram = value;
+                this.caloriesPerGram = value ;
             }
         }
 
-        public double Calories()
+        private double Calories()
         {
             double dModifier;
             double bModifier;
@@ -114,7 +115,7 @@ namespace _04_Pizza_Calories
                 bModifier = 1.0;
             }
 
-            return (CaloriesPerGram * DWeight) * dModifier * bModifier;
+            return (defaultModifier * DWeight) * dModifier * bModifier;
         }
 
     }
