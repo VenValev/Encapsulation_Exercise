@@ -30,7 +30,7 @@ namespace _04_Pizza_Calories
             get => this.name;
             private set
             {
-                if(String.IsNullOrWhiteSpace(value) || value.Length > 15)
+                if(String.IsNullOrWhiteSpace(value) || (value.Length < 1 || value.Length > 15))
                 {
                     throw new ArgumentException($"Pizza name should be between 1 and 15 symbols.");
                 }
@@ -67,7 +67,7 @@ namespace _04_Pizza_Calories
 
         public void AddTopping(Topping t)
         {
-            if (toppingType.Count >= 10)
+            if (toppingType.Count > 10)
             {
                 throw new ArgumentException($"Number of toppings should be in range [0..10].");
             }
