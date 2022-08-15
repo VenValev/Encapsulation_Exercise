@@ -6,30 +6,53 @@ namespace _04_Pizza_Calories
     {
         static void Main(string[] args)
         {
+            Pizza pizza;
+            Dough dough;
+
             try
             {
                 string[] pizzaLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                Dough dough = new Dough(doughLine[1], doughLine[2], double.Parse(doughLine[3]));
-                Pizza pizza = new Pizza(pizzaLine[1], dough);
-            
-                string command;
-                //pizza.DoughType = new Dough("gosho", "chewy", 25);
 
-                while ((command = Console.ReadLine()) != "END")
-                {
-                    string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                    Topping topping = new Topping(cmndArg[1], double.Parse(cmndArg[2]));
-                    pizza.AddTopping(topping);
-                    
-                }
-                Console.WriteLine(pizza.ToString());
+                pizza = new Pizza(pizzaLine[1]);
+            }
+            catch(ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+                return;
+            }
+
+            try
+            {
+                string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                dough = new Dough(doughLine[1], doughLine[2], double.Parse(doughLine[3]));
+                pizza.DoughType = dough;
             }
             catch (ArgumentException ae)
             {
                 Console.WriteLine(ae.Message);
                 return;
             }
+
+            string command;
+                
+             
+            while ((command = Console.ReadLine()) != "END")
+            {
+                try
+                {
+                    string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    Topping topping = new Topping(cmndArg[1], double.Parse(cmndArg[2]));
+                    pizza.AddTopping(topping);
+                }
+                catch (ArgumentException ae)
+                {
+                    Console.WriteLine(ae.Message);
+                    return;
+                }
+
+            }
+            
+            Console.WriteLine(pizza.ToString());
 
             
 
