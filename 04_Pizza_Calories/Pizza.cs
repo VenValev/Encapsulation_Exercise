@@ -8,8 +8,8 @@ namespace _04_Pizza_Calories
     {
         private string name;
         private Dough doughType;
-        private int toppingCount;
-        private double totalCalories;
+        //private int toppingCount;
+        //private double totalCalories;
 
         public List<Topping> toppingType
         {
