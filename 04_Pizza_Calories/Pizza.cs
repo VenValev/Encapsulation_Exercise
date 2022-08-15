@@ -64,6 +64,7 @@ namespace _04_Pizza_Calories
             private set
             { this.totalCalories = value; }
         }
+
         public void AddTopping(Topping t)
         {
             if (toppingType.Count > 10)

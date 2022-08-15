@@ -21,6 +21,7 @@ namespace _04_Pizza_Calories
                     string[] cmndArg = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     Topping topping = new Topping(cmndArg[1], double.Parse(cmndArg[2]));
                     pizza.AddTopping(topping);
+                    
                 }
                 Console.WriteLine(pizza.ToString());
             }
