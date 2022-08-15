@@ -22,7 +22,7 @@ namespace _04_Pizza_Calories
             this.Name = name;
             this.DoughType = doughType;
             this.ToppingCount = toppingCount;
-            this.TotalCalories = totalCalories;
+            this.TotalCalories = totalCalories + doughType.CaloriesPerGram;
         }
 
         public string Name
