@@ -81,7 +81,7 @@ namespace _04_Pizza_Calories
 
         public override string ToString()
         {
-            return $"{this.Name} - {this.TotalCalories + DoughType.CaloriesPerGram:f2} Calories.";
+            return $"{this.Name} - {this.TotalCalories:f2} Calories.";
         }
 
     }
