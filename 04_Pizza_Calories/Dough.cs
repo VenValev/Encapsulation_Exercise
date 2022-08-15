@@ -19,7 +19,7 @@ namespace _04_Pizza_Calories
             this.DType = dType;
             this.DBake = dBake;
             this.DWeight = dWeight;
-            this.CaloriesPerGram = this.caloriesPerGram;
+            this.CaloriesPerGram = 2.0;
         }
 
         private string DType
@@ -37,7 +37,7 @@ namespace _04_Pizza_Calories
                 }
                 else
                 {
-                    this.dType = value.ToLower();
+                    this.dType = value;
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace _04_Pizza_Calories
                 }
                 else
                 {
-                    this.dBake = value.ToLower();
+                    this.dBake = value;
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace _04_Pizza_Calories
             }
             private set
             {
-                this.caloriesPerGram = 2.0;
+                this.caloriesPerGram = value;
             }
         }
 
@@ -93,7 +93,7 @@ namespace _04_Pizza_Calories
             double dModifier;
             double bModifier;
 
-            if(DType == "white")
+            if(DType.ToLower() == "white")
             {
                 dModifier = 1.5;
             }
@@ -101,11 +101,11 @@ namespace _04_Pizza_Calories
             {
                 dModifier = 1.0;
             }
-            if(DBake == "crispy")
+            if(DBake.ToLower() == "crispy")
             {
                 bModifier = 0.9;
             }
-            else if(DBake == "chewy")
+            else if(DBake.ToLower() == "chewy")
             {
                 bModifier = 1.1;
             }
