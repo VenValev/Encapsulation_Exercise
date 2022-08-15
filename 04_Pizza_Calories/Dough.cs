@@ -23,10 +23,10 @@ namespace _04_Pizza_Calories
             this.CaloriesPerGram = Calories();
         }
 
-        private string DType
+        public string DType
         {
             get { return this.dType; }
-            set
+            private set
             {
                 if(String.IsNullOrWhiteSpace(value))
                 {
@@ -42,13 +42,13 @@ namespace _04_Pizza_Calories
                 }
             }
         }
-        private string DBake
+        public string DBake
         {
             get
             {
                 return this.dBake;
             }
-            set
+            private set
             {
                 if(String.IsNullOrWhiteSpace(value) 
                     || (value.ToLower() != "crispy" && value.ToLower() != "chewy" && value.ToLower() != "homemade"))
@@ -61,13 +61,13 @@ namespace _04_Pizza_Calories
                 }
             }
         }
-        private double DWeight
+        public double DWeight
         {
             get
             {
                 return this.dWeight;
             }
-            set
+            private set
             {
                 if (value <= 0 || value > 200)
                 {
