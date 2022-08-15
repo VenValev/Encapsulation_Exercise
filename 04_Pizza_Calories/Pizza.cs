@@ -37,7 +37,7 @@ namespace _04_Pizza_Calories
                 this.name = value;
             }
         }
-        public Dough DoughType
+        private Dough DoughType
         {
             get => this.doughType;
             set

@@ -39,7 +39,7 @@ namespace _04_Pizza_Calories
             get => this.weight;
             set
             {
-                if(value <=0 || value > 50)
+                if(value <= 0 || value > 50)
                 {
                     throw new ArgumentException($"{this.Type} weight should be in the range[1..50].");
                 }
