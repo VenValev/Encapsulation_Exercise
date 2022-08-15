@@ -12,8 +12,8 @@ namespace _04_Pizza_Calories
                 string[] doughLine = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 Dough dough = new Dough(doughLine[1], doughLine[2], double.Parse(doughLine[3]));
                 Pizza pizza = new Pizza(pizzaLine[1], dough);
+            
                 string command;
-
                 //pizza.DoughType = new Dough("gosho", "chewy", 25);
 
                 while ((command = Console.ReadLine()) != "END")
@@ -27,9 +27,10 @@ namespace _04_Pizza_Calories
             catch (ArgumentException ae)
             {
                 Console.WriteLine(ae.Message);
+                return;
             }
 
-
+            
 
         }
     }
