@@ -19,10 +19,10 @@ namespace _04_Pizza_Calories
             this.CaloriesPerGram = Calories();
         }
        
-        private string Type
+        public string Type
         {
             get { return this.type; }
-            set
+            private set
             {
                 if(String.IsNullOrWhiteSpace(value) 
                     || (value.ToLower() != "meat" && value.ToLower() != "veggies" 
@@ -34,10 +34,10 @@ namespace _04_Pizza_Calories
                 this.type = value;
             }
         }
-        private double Weight
+        public double Weight
         {
             get => this.weight;
-            set
+            private set
             {
                 if(value < 1 || value > 50)
                 {
