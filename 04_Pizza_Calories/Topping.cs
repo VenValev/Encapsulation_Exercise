@@ -10,17 +10,18 @@ namespace _04_Pizza_Calories
         private double caloriesPerGram;
         private double weight;
         private double tModifier = 0;
+        private const double deffaultModifier = 2.0;
 
         public Topping(string type, double weight)
         {
             this.Type = type;
             this.Weight = weight;
-            this.CaloriesPerGram = caloriesPerGram;
+            this.CaloriesPerGram = Calories();
         }
         public double CaloriesPerGram
         {
             get { return this.caloriesPerGram; }
-            private set { this.caloriesPerGram = 2.0; }
+            private set { this.caloriesPerGram = value; }
         }
         private string Type
         {
@@ -51,7 +52,7 @@ namespace _04_Pizza_Calories
             }
         }
 
-        public double Calories() // moje da ser naloji proverka za .toLower
+        private double Calories() // moje da ser naloji proverka za .toLower
         {
             if(this.Type.ToLower() == "meat")
             {
@@ -70,7 +71,7 @@ namespace _04_Pizza_Calories
                 tModifier = 0.9;
             }
 
-            return this.CaloriesPerGram * tModifier * this.Weight;
+            return deffaultModifier * tModifier * this.Weight;
         }
 
     }

@@ -73,7 +73,7 @@ namespace _04_Pizza_Calories
             else
             {
                 this.toppingType.Add(t);
-                this.TotalCalories += t.Calories();
+                this.TotalCalories += t.CaloriesPerGram;
                 this.ToppingCount++;
             }
         }
