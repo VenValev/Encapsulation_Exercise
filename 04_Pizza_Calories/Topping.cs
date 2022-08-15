@@ -9,6 +9,7 @@ namespace _04_Pizza_Calories
         private string type;
         private double caloriesPerGram;
         private double weight;
+        private double tModifier = 0;
 
         public Topping(string type, double weight)
         {
@@ -33,7 +34,7 @@ namespace _04_Pizza_Calories
                     throw new ArgumentException($"Cannot place {value} on top of your pizza.");
                 }
 
-                this.type = value.ToLower();
+                this.type = value;
             }
         }
         private double Weight
@@ -52,21 +53,19 @@ namespace _04_Pizza_Calories
 
         public double Calories() // moje da ser naloji proverka za .toLower
         {
-            double tModifier = 0;
-
-            if(this.Type == "meat")
+            if(this.Type.ToLower() == "meat")
             {
                 tModifier = 1.2;
             }
-            if (this.Type == "veggies")
+            if (this.Type.ToLower() == "veggies")
             {
                 tModifier = 0.8;
             }
-            if (this.Type == "cheese")
+            if (this.Type.ToLower() == "cheese")
             {
                 tModifier = 1.1;
             }
-            if (this.Type == "sauce")
+            if (this.Type.ToLower() == "sauce")
             {
                 tModifier = 0.9;
             }
