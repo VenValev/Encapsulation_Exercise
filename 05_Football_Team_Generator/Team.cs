@@ -49,7 +49,7 @@ namespace _05_Football_Team_Generator
 
         public void RemovePlayer(string name)
         {
-            if(players.Contains())
+            if(players.Contains(p => p.Name == name))
             {
 
             }
