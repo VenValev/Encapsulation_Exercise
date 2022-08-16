@@ -6,6 +6,7 @@ namespace _05_Football_Team_Generator
 {
     public class Team
     {
+        private string name;
 
     }
 }

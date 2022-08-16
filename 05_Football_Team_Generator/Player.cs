@@ -22,6 +22,7 @@ namespace _05_Football_Team_Generator
             this.Dribble = dribble;
             this.Passing = passing;
             this.Shooting = shooting;
+            this.AvrgStat = AverageStats();
         }
 
         public string Name 
@@ -94,6 +95,14 @@ namespace _05_Football_Team_Generator
                     throw new ArgumentException(String.Format(ExeptMsg.invalidStatExep, "Shooting"));
                 }
                 this.shooting = value;
+            }
+        }
+        public double AvrgStat
+        {
+            get => this.avrgStat;
+            private set
+            {
+                this.avrgStat = value;
             }
         }
 
