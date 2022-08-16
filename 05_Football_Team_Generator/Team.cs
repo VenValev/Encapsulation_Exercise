@@ -52,11 +52,13 @@ namespace _05_Football_Team_Generator
         {
             Player plToDel = this.players
                 .FirstOrDefault(p => p.Name == playerName);
+
             if(plToDel == null)
             {
                 throw new AggregateException(String
                     .Format(ExeptMsg.missingPlayerInTeam, playerName, this.Name));
             }
+
             this.players.Remove(plToDel);
         }
 
