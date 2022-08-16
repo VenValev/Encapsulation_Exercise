@@ -17,7 +17,31 @@ namespace _05_Football_Team_Generator
         public Team(string name)
             :this()
         {
-
+            this.Name = name;
         }
+
+        public string Name
+        {
+            get => this.name;
+            private set
+            {
+                if(String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException(ExeptMsg.invalidNameExep);
+                }
+
+                this.name = value;
+            }
+        }
+        public int Rating
+        {
+            get => this.rating;
+            private set
+            {
+                this.rating = value;
+            }
+        }
+
+
     }
 }
