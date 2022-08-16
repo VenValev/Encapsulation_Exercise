@@ -61,6 +61,10 @@ namespace _05_Football_Team_Generator
 
             this.players.Remove(plToDel);
         }
+        public int Rating(List<Player> player)
+        {
+
+        }
 
     }
 }
