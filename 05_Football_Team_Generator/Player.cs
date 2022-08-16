@@ -44,7 +44,7 @@ namespace _05_Football_Team_Generator
             {
                 if(value < 0 || value > 100)
                 {
-                    throw new ArgumentException(String.Format(ExeptMsg.invalidStatExep, "Endurance"));
+                    throw new ArgumentException(String.Format(ExeptMsg.invalidStatExep, nameof(this.Endurance)));
                 }
                 this.endurance = value;
             }

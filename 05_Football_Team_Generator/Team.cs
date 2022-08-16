@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace _05_Football_Team_Generator
@@ -10,7 +11,7 @@ namespace _05_Football_Team_Generator
         private int rating;
         private readonly List<Player> players;
 
-        public Team()
+        private Team()
         {
             players = new List<Player>();
         }
@@ -44,15 +45,19 @@ namespace _05_Football_Team_Generator
 
         public void AddPlayer(Player player)
         {
-            players.Add(player);
+            this.players.Add(player);
         }
 
-        public void RemovePlayer(string name)
+        public void RemovePlayer(string playerName)
         {
-            if(players.Contains(p => p.Name == name))
+            Player plToDel = this.players
+                .FirstOrDefault(p => p.Name == playerName);
+            if(plToDel == null)
             {
-
+                throw new AggregateException(String
+                    .Format(ExeptMsg.missingPlayerInTeam, playerName, this.Name));
             }
+            this.players.Remove(plToDel);
         }
 
     }
