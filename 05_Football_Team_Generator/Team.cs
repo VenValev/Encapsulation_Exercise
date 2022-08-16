@@ -42,6 +42,18 @@ namespace _05_Football_Team_Generator
             }
         }
 
+        public void AddPlayer(Player player)
+        {
+            players.Add(player);
+        }
+
+        public void RemovePlayer(string name)
+        {
+            if(players.Contains())
+            {
+
+            }
+        }
 
     }
 }
